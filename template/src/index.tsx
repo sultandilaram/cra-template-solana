@@ -1,40 +1,39 @@
-
 /// Packages
-import ReactDOM from 'react-dom/client';
+import ReactDOM from "react-dom/client";
 import { Buffer } from "buffer";
 
 /// Components
-import Providers from './contexts/Providers';
-import { PanelWrapper } from './wrappers';
-import Home from './pages/Home';
+import Providers from "./contexts/Providers";
+import { PanelWrapper } from "./wrappers";
 
 /// Styles
-import './styles/index.scss';
-import '@solana/wallet-adapter-react-ui/styles.css'
+import "@solana/wallet-adapter-react-ui/styles.css";
 import "react-toastify/dist/ReactToastify.css";
+import "./styles/index.scss";
 
+/// ROUTER
+import ROUTES from "./routes";
+
+/// DEPENDENCIES
 window.Buffer = window.Buffer || Buffer;
-
-const ROUTES = [
-  { route: '/home', element: <Home /> },
-]
 
 function App() {
   return (
     <div className="App">
       <Providers>
         <PanelWrapper
-          title='React - Solana'
-        // sidebar={<Sidebar />}
-        // header={<Header />>}
-        >{ROUTES}</PanelWrapper>
+          title="React - Solana"
+          // sidebar={<Sidebar />}
+          // header={<Header />}
+          // footer={<Footer />}
+        >
+          {ROUTES}
+        </PanelWrapper>
       </Providers>
     </div>
   );
 }
 
-ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-).render(
+ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <App />
 );

@@ -1,5 +1,5 @@
-import { WalletAdapterNetwork } from "@solana/wallet-adapter-base";
 import React from "react";
+import { WalletAdapterNetwork } from "@solana/wallet-adapter-base";
 import { RPC_LIST } from "config";
 import { useLocalStorage } from ".";
 

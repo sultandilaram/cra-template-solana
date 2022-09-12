@@ -1,0 +1,575 @@
+$breakpoints: (
+  "": 0px,
+  "big-desktop": 300.5em,
+  "desktop": 112.5em,
+  "lg": 1920px,
+  "laptop": 90em,
+  "md": 1280px,
+  "laptop-md": 64em,
+  "sm": 768px,
+  "laptop-sm": 48em,
+  "phone": 26.5625em,
+  "phone-md": 23.4375em,
+  "xs": 375px,
+  "phone-sm": 20em,
+  "phone-xs": 7.5em,
+);
+
+@mixin breakpoint($breakpoint) {
+  @if $breakpoint != "" {
+    @media screen and (max-width: map_get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+// ----- Alignments -----
+
+@mixin margin($prefix, $value) {
+  .#{$prefix}m {
+    &#{$value} {
+      margin: $value * 1rem;
+    }
+    &l#{$value} {
+      margin-left: $value * 1rem;
+    }
+    &r#{$value} {
+      margin-right: $value * 1rem;
+    }
+    &b#{$value} {
+      margin-bottom: $value * 1rem;
+    }
+    &t#{$value} {
+      margin-top: $value * 1rem;
+    }
+  }
+}
+
+@mixin padding($prefix, $value) {
+  .#{$prefix}p {
+    &#{$value} {
+      padding: $value * 1rem;
+      &px {
+        padding: $value * 1px;
+      }
+    }
+    &-#{$value} {
+      padding: calc(($value / 10) * 1rem);
+      &px {
+        padding: calc(($value / 10) * 1px);
+      }
+    }
+
+    &x#{$value} {
+      padding-left: $value * 1rem;
+      padding-right: $value * 1rem;
+      &px {
+        padding-left: $value * 1px;
+        padding-right: $value * 1px;
+      }
+    }
+    &x-#{$value} {
+      padding-left: calc(($value / 10) * 1rem);
+      padding-right: calc(($value / 10) * 1rem);
+      &px {
+        padding-left: calc(($value / 10) * 1px);
+        padding-right: calc(($value / 10) * 1px);
+      }
+    }
+
+    &y#{$value} {
+      padding-top: $value * 1rem;
+      padding-bottom: $value * 1rem;
+      &px {
+        padding-top: $value * 1px;
+        padding-bottom: $value * 1px;
+      }
+    }
+    &y-#{$value} {
+      padding-top: calc(($value / 10) * 1rem);
+      padding-bottom: calc(($value / 10) * 1rem);
+      &px {
+        padding-top: calc(($value / 10) * 1px);
+        padding-bottom: calc(($value / 10) * 1px);
+      }
+    }
+
+    &l#{$value} {
+      padding-left: $value * 1rem;
+      &px {
+        padding-left: $value * 1px;
+      }
+    }
+
+    &r#{$value} {
+      padding-right: $value * 1rem;
+      &px {
+        padding-right: $value * 1px;
+      }
+    }
+
+    &b#{$value} {
+      padding-bottom: $value * 1rem;
+      &px {
+        padding-bottom: $value * 1px;
+      }
+    }
+
+    &t#{$value} {
+      padding-top: $value * 1rem;
+      &px {
+        padding-top: $value * 1px;
+      }
+    }
+  }
+}
+
+@mixin border($prefix, $value) {
+  .#{$prefix}b {
+    &#{$value} {
+      border: $value * 1px solid var(--border-color) !important;
+    }
+    &l#{$value} {
+      padding-left: $value * 1px solid var(--border-color) !important;
+    }
+    &r#{$value} {
+      padding-right: $value * 1px solid var(--border-color) !important;
+    }
+    &b#{$value} {
+      padding-bottom: $value * 1px solid var(--border-color) !important;
+    }
+    &t#{$value} {
+      padding-top: $value * 1px solid var(--border-color) !important;
+    }
+  }
+}
+
+@mixin height_width($prefix, $value) {
+  @if $value > 0 and $value <= 100 {
+    .#{$prefix}h#{$value} {
+      height: $value * 1%;
+    }
+    .#{$prefix}w#{$value} {
+      width: $value * 1%;
+    }
+
+    .#{$prefix}vh#{$value} {
+      height: $value * 1vh;
+    }
+    .#{$prefix}vw#{$value} {
+      width: $value * 1vw;
+    }
+
+    .#{$prefix}min-h#{$value} {
+      min-height: $value * 1%;
+    }
+    .#{$prefix}min-w#{$value} {
+      min-width: $value * 1%;
+    }
+
+    .#{$prefix}min-vh#{$value} {
+      min-height: $value * 1vh;
+    }
+    .#{$prefix}min-vw#{$value} {
+      min-width: $value * 1vw;
+    }
+
+    .#{$prefix}max-h#{$value} {
+      max-height: $value * 1%;
+    }
+    .#{$prefix}max-w#{$value} {
+      max-width: $value * 1%;
+    }
+
+    .#{$prefix}max-vh#{$value} {
+      max-height: $value * 1vh;
+    }
+    .#{$prefix}max-vw#{$value} {
+      max-width: $value * 1vw;
+    }
+  }
+
+  .#{$prefix}h#{$value}px {
+    height: $value * 1px;
+  }
+  .#{$prefix}w#{$value}px {
+    width: $value * 1px;
+  }
+
+  .#{$prefix}min-h#{$value}px {
+    min-height: $value * 1px;
+  }
+  .#{$prefix}min-w#{$value}px {
+    min-width: $value * 1px;
+  }
+
+  .#{$prefix}max-h#{$value}px {
+    max-height: $value * 1px;
+  }
+  .#{$prefix}max-w#{$value}px {
+    max-width: $value * 1px;
+  }
+}
+
+@mixin gap($prefix, $value) {
+  .#{$prefix}gap#{$value} {
+    gap: $value * 1rem;
+  }
+  .#{$prefix}gap-col#{$value} {
+    column-gap: $value * 1rem;
+  }
+  .#{$prefix}gap-row#{$value} {
+    row-gap: $value * 1rem;
+  }
+}
+
+@mixin grid-define($prefix, $value) {
+  .#{$prefix}cols-#{$value} {
+    grid-template-columns: repeat($value, 1fr);
+  }
+  .#{$prefix}rows-#{$value} {
+    grid-template-rows: repeat($value, 1fr);
+  }
+}
+
+@mixin grid-position($prefix, $value, $span) {
+  .#{$prefix}row#{$value} {
+    grid-row: #{$value};
+  }
+  .#{$prefix}row#{$value}-#{$span} {
+    grid-row: #{$value} / span #{$span};
+  }
+  .#{$prefix}col#{$value} {
+    grid-column: #{$value};
+  }
+  .#{$prefix}col#{$value}-#{$span} {
+    grid-column: #{$value} / span #{$span};
+  }
+}
+
+@mixin display($prefix) {
+  .#{$prefix}d {
+    &-none {
+      display: none;
+    }
+    &-block {
+      display: block;
+    }
+    &-inline {
+      display: inline;
+    }
+    &-inline-block {
+      display: inline-block;
+    }
+    &-flex {
+      display: flex;
+      gap: 0.5rem;
+    }
+    &-inline-flex {
+      display: inline-flex;
+      gap: 0.5rem;
+    }
+    &-grid {
+      display: grid;
+      gap: 0.5rem;
+    }
+    &-inline-grid {
+      display: inline-grid;
+      gap: 0.5rem;
+    }
+  }
+}
+
+@mixin flex($prefix) {
+  .#{$prefix}flex {
+    &-row {
+      flex-direction: row;
+      &-reverse {
+        flex-direction: row-reverse;
+      }
+    }
+    &-col {
+      flex-direction: column;
+      &-reverse {
+        flex-direction: column-reverse;
+      }
+    }
+    &-wrap {
+      flex-wrap: wrap;
+    }
+    &-nowrap {
+      flex-wrap: nowrap;
+    }
+    &-noshrink {
+      flex-shrink: 0;
+    }
+    &-nogrow {
+      flex-grow: 0;
+    }
+  }
+}
+
+@mixin align($prefix) {
+  .#{$prefix}content {
+    &-center {
+      justify-content: center;
+    }
+    &-start {
+      justify-content: flex-start;
+    }
+    &-end {
+      justify-content: flex-end;
+    }
+    &-space {
+      &-between {
+        justify-content: space-between;
+      }
+      &-around {
+        justify-content: space-around;
+      }
+      &-evenly {
+        justify-content: space-around;
+      }
+    }
+  }
+  .#{$prefix}items {
+    &-center {
+      align-items: center;
+    }
+    &-start {
+      align-items: flex-start;
+    }
+    &-end {
+      align-items: flex-end;
+    }
+    &-space {
+      &-between {
+        align-items: space-between;
+      }
+      &-around {
+        align-items: space-around;
+      }
+      &-evenly {
+        align-items: space-around;
+      }
+    }
+  }
+
+  .#{$prefix}justify-self {
+    &-center {
+      justify-self: center;
+    }
+    &-start {
+      justify-self: flex-start;
+    }
+    &-end {
+      justify-self: flex-end;
+    }
+  }
+  .#{$prefix}align-self {
+    &-center {
+      align-self: center;
+    }
+    &-start {
+      align-self: flex-start;
+    }
+    &-end {
+      align-self: flex-end;
+    }
+  }
+
+  .#{$prefix}relative {
+    position: relative;
+  }
+
+  .#{$prefix}absolute {
+    position: absolute;
+  }
+
+  .#{$prefix}fixed {
+    position: fixed;
+    z-index: var(--z-fixed);
+  }
+
+  .#{$prefix}sticky {
+    position: sticky;
+  }
+
+  .#{$prefix}text {
+    &-center {
+      text-align: center;
+    }
+    &-left {
+      text-align: left;
+    }
+    &-right {
+      text-align: right;
+    }
+    &-justify {
+      text-align: justify;
+    }
+    &-start {
+      text-align: flex-start;
+    }
+    &-end {
+      text-align: end;
+    }
+  }
+
+  .#{$prefix}overflow {
+    &-hidden {
+      overflow: hidden;
+    }
+    &-auto {
+      overflow: auto;
+    }
+    &-scroll {
+      overflow: scroll;
+    }
+    &-x {
+      &-hidden {
+        overflow-x: hidden;
+      }
+      &-auto {
+        overflow-x: auto;
+      }
+      &-scroll {
+        overflow-x: scroll;
+      }
+    }
+    &-y {
+      &-hidden {
+        overflow-y: hidden;
+      }
+      &-auto {
+        overflow-y: auto;
+      }
+      &-scroll {
+        overflow-y: scroll;
+      }
+    }
+  }
+}
+
+@mixin color($color) {
+  .bg-#{$color} {
+    background-color: var(--#{$color}-color);
+    &-light {
+      background-color: var(--#{$color}-color-light);
+    }
+    &-alt {
+      background-color: var(--#{$color}-color-alt);
+    }
+    &-gradient {
+      background: var(--#{$color}-gradient);
+    }
+  }
+
+  .hover-bg-#{$color} {
+    &:hover {
+      background-color: var(--#{$color}-color-hover);
+    }
+    &-light:hover {
+      background-color: var(--#{$color}-color-light);
+    }
+    &-alt:hover {
+      background-color: var(--#{$color}-color-alt);
+    }
+    &-gradient:hover {
+      background: var(--#{$color}-gradient);
+    }
+  }
+
+  .active.active-bg-#{$color} {
+    background-color: var(--#{$color}-color);
+    &-light {
+      background-color: var(--#{$color}-color-light);
+    }
+    &-alt {
+      background-color: var(--#{$color}-color-alt);
+    }
+    &-gradient {
+      background: var(--#{$color}-gradient);
+    }
+  }
+
+  .text-#{$color} {
+    color: var(--#{$color}-color);
+    &-light {
+      color: var(--#{$color}-color-light);
+    }
+    &-alt {
+      color: var(--#{$color}-color-alt);
+    }
+  }
+
+  .hover-text-#{$color} {
+    &:hover {
+      color: var(--#{$color}-color);
+    }
+    &-light:hover {
+      color: var(--#{$color}-color-light);
+    }
+    &-alt:hover {
+      color: var(--#{$color}-color-alt);
+    }
+  }
+
+  .active.active-text-#{$color} {
+    color: var(--#{$color}-color);
+    &-light {
+      color: var(--#{$color}-color-light);
+    }
+    &-alt {
+      color: var(--#{$color}-color-alt);
+    }
+  }
+
+  .link-#{$color} {
+    color: var(--#{$color}-color);
+    &:hover {
+      color: var(--#{$color}-color-alt);
+    }
+  }
+
+  .b-#{$color} {
+    border-color: var(--#{$color}-color-alt);
+  }
+
+  .btn-#{$color} {
+    background-color: var(--#{$color}-color);
+    &:hover {
+      background-color: var(--#{$color}-color-alt);
+    }
+  }
+
+  .btn-#{$color}-outline {
+    background-color: transparent;
+    border: 1px solid var(--#{$color}-color);
+    color: var(--#{$color}-color);
+    transition: 0.3s;
+    &:hover {
+      color: white;
+      background-color: var(--#{$color}-color);
+    }
+  }
+
+  .btn-#{$color}-transparent {
+    background-color: transparent;
+    border: 0;
+    color: var(--#{$color}-color);
+    transition: 0.3s;
+    &:hover {
+      color: white;
+      background-color: var(--#{$color}-color);
+    }
+  }
+
+  .alert-#{$color} {
+    color: var(--#{$color}-color-alt);
+    background-color: var(--#{$color}-color-light);
+    border: 1px solid var(--#{$color}-alert-alt);
+  }
+}

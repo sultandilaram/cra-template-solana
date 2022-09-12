@@ -1,10 +1,9 @@
-import React from "react";
 import { WalletAdapterNetwork } from "@solana/wallet-adapter-base";
 import { RPC_LIST } from "config";
 import { useLocalStorage } from ".";
 
 export default function useRpc(network?: WalletAdapterNetwork) {
-  const [rpc, setRpcState] = useLocalStorage("rpc", RPC_LIST[0]);
+  const [rpc, setRpcState] = useLocalStorage("rpc", RPC_LIST[0].value);
 
   const setRpc = (name: string) => {
     if (network === WalletAdapterNetwork.Devnet) return;

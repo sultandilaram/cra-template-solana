@@ -1,14 +1,12 @@
-import { WalletAdapterNetwork } from '@solana/wallet-adapter-base';
-import { useRpc } from '.';
-
-const Network = WalletAdapterNetwork.Devnet;
+import * as config from "config";
+import { useRpc } from ".";
 
 export default function useConfig() {
-
-  const { rpc } = useRpc(Network)
+  const { rpc } = useRpc(config.Network);
 
   return {
-    network: Network,
+    network: config.Network,
     endpoint: rpc,
-  }
+    offchainUrl: config.API_BASE_URL,
+  };
 }

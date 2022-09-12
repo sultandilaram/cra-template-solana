@@ -22,7 +22,7 @@ export default function useApi() {
 
   const { offchainUrl: url } = useConfig();
 
-  const get = React.useCallback(async <T = any,>(endpoint: string, token: string | null): Promise<Response<T>> => {
+  const get = React.useCallback(async <T = any,>(endpoint: string, token: string | null): Promise<Response<T> | T> => {
 
     if (endpoint[0] !== "/") throw new Error("Endpoint must start with a slash");
 
@@ -36,7 +36,7 @@ export default function useApi() {
   }, [url]);
 
   const post = React.useCallback(
-    async <T = any, R = any>(endpoint: string, data: T, token: string | null): Promise<Response<R>> => {
+    async <T = any, R = any>(endpoint: string, data: T, token: string | null): Promise<Response<R> | R> => {
 
       if (endpoint[0] !== "/") throw new Error("Endpoint must start with a slash");
 
@@ -52,7 +52,7 @@ export default function useApi() {
   );
 
   const put = React.useCallback(
-    async <T = any, R = any>(endpoint: string, data: T, token: string | null): Promise<Response<R>> => {
+    async <T = any, R = any>(endpoint: string, data: T, token: string | null): Promise<Response<R> | R> => {
 
       if (endpoint[0] !== "/") throw new Error("Endpoint must start with a slash");
 
@@ -67,7 +67,7 @@ export default function useApi() {
     [url]
   );
 
-  const del = React.useCallback(async <T = any,>(endpoint: string, token: string | null): Promise<Response<T>> => {
+  const del = React.useCallback(async <T = any,>(endpoint: string, token: string | null): Promise<Response<T> | T> => {
 
     if (endpoint[0] !== "/") throw new Error("Endpoint must start with a slash");
 

@@ -1,5 +1,5 @@
 {
-  "name": "react-solana",
+  "name": "cra-template-solana",
   "version": "0.1.0",
-  "repository": "git@github.com:sultandilaram/react-solana.git"
+  "repository": "git@github.com:sultandilaram/cra-template-solana.git"
 }

@@ -1,20 +1,22 @@
 import React from 'react'
 
-export default function useLocalStorage<T = any>(key: string, defaultValue: T): [T, (value: T) => void] {
+export default function useLocalStorage<T = any>(key: string, initialState: T extends Function ? never : (T | (() => T))): [T, (value: T) => void] {
   const [value, setValueState] = React.useState<T>(() => {
     try {
       const item = localStorage.getItem(key)
 
-      if (item) {
+      if (item && item !== "null") {
+        console.log(item, "item")
         return JSON.parse(item)
       } else {
-        localStorage.setItem(key, JSON.stringify(item))
+        const defaultValue = typeof initialState === 'function' ? initialState() : initialState
+        localStorage.setItem(key, JSON.stringify(defaultValue))
         return defaultValue
       }
 
     } catch (e) {
       console.error(e)
-      return defaultValue
+      return typeof initialState === 'function' ? initialState() : initialState
     }
   })
 

@@ -9,4 +9,5 @@
   <li>useRpc</li>
   <li>useConfig</li>
   <li>useProvider</li>
+  <li>useAnchorPagination</li>
 </ol>

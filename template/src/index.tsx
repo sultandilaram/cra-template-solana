@@ -9,7 +9,7 @@ import { PanelWrapper } from "./wrappers";
 /// Styles
 import "@solana/wallet-adapter-react-ui/styles.css";
 import "react-toastify/dist/ReactToastify.css";
-import "./styles/index.scss";
+import "react-solana/dist/styles/index.scss"
 
 /// ROUTER
 import ROUTES from "./routes";
@@ -23,9 +23,9 @@ function App() {
       <Providers>
         <PanelWrapper
           title="React - Solana"
-          // sidebar={<Sidebar />}
-          // header={<Header />}
-          // footer={<Footer />}
+        // sidebar={<Sidebar />}
+        // header={<Header />}
+        // footer={<Footer />}
         >
           {ROUTES}
         </PanelWrapper>

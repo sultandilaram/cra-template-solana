@@ -1,32 +1,24 @@
-import { WalletAdapterNetwork } from "@solana/wallet-adapter-base";
+import { SolanaNetwork } from "react-solana";
 
-export const Network: WalletAdapterNetwork = WalletAdapterNetwork.Devnet;
-export const PRODUCTION: boolean = false;
-
-const localUrl: string = "http://localhost:4000";
-const prodUrl: string = "https://example.com";
-
-export const API_BASE_URL = PRODUCTION ? prodUrl : localUrl;
-
-export const RPC_LIST = [
+export const network = SolanaNetwork.Devnet;
+export const production = false;
+export const localUrl: string = "http://localhost:4000";
+export const prodUrl: string = "https://example.com";
+export const RPC_List = [
   {
-    label: "Solana",
     name: "Solana",
-    value: "https://api.mainnet-beta.solana.com/",
+    url: "https://api.mainnet-beta.solana.com/",
   },
   {
-    label: "Metaplex",
     name: "Metaplex",
-    value: "https://api.metaplex.solana.com/",
+    url: "https://api.metaplex.solana.com/",
   },
   {
-    label: "GenesysGo",
     name: "GenesysGo",
-    value: "https://pentacle.genesysgo.net/",
+    url: "https://pentacle.genesysgo.net/",
   },
   {
-    label: "Serum",
     name: "Serum",
-    value: "https://solana-api.projectserum.com/",
+    url: "https://solana-api.projectserum.com/",
   },
 ];

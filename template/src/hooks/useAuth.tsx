@@ -9,11 +9,11 @@ export default function useAuth() {
 
   const login = React.useCallback(async () => {
     setAuthToken('secret_token')
-  }, []);
+  }, [setAuthToken]);
 
   const logout = React.useCallback(async () => {
     setAuthToken(null)
-  }, []);
+  }, [setAuthToken]);
 
   return {
     authToken,

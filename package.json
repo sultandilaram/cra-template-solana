@@ -1,5 +1,6 @@
 {
   "name": "cra-template-solana",
+  "description": "Solana and Anchor template for Create React App",
   "version": "0.4.0",
   "repository": "git@github.com:sultandilaram/cra-template-solana.git",
   "license": "MIT"

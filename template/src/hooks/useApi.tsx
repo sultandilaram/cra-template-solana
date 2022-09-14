@@ -34,7 +34,7 @@ export default function useApi() {
     });
 
     return response.data;
-  }, [url]);
+  }, [url, authToken]);
 
   const post = React.useCallback(
     async <T = any, R = any>(endpoint: string, data: T): Promise<Response<R> | R> => {
@@ -49,7 +49,7 @@ export default function useApi() {
 
       return response.data;
     },
-    [url]
+    [url, authToken]
   );
 
   const put = React.useCallback(
@@ -65,7 +65,7 @@ export default function useApi() {
 
       return response.data;
     },
-    [url]
+    [url, authToken]
   );
 
   const del = React.useCallback(async <T = any,>(endpoint: string): Promise<Response<T> | T> => {
@@ -79,7 +79,7 @@ export default function useApi() {
     });
 
     return response.data;
-  }, [url]);
+  }, [url, authToken]);
 
   return { get, post, put, del };
 }

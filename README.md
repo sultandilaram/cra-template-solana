@@ -1,6 +1,8 @@
 <h1>React - Solana Template</h1>
 <p>Solana and Anchor template for Create React App. This template generates Scaffold to develop Solana/Anchor Dapp frontend in React. It has built in utils for developing an efficient web3 frontend on react.</p>
 
+<strong>Note: We are currently testing this template, you might encounter some bugs. Please open an issue if you do so, We will get to you ASAP.</strong>
+
 <h2>Dependencies / Included node packages (Other than included in CRA) </h2>
 <table>
   <tr>
@@ -16,8 +18,12 @@
     <td>^0.3.4</td>
   </tr>
   <tr>
-    <th>"@solana/wallet-adapter-base</th>
+    <th>@solana/wallet-adapter-base</th>
     <td>^0.9.16</td>
+  </tr>
+  <tr>
+    <th>react-solana</th>
+    <td>^0.7.0</td>
   </tr>
 </table>
 

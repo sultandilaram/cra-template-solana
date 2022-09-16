@@ -12,9 +12,9 @@ export default function Providers({ children }: Props) {
 
   return (
     <BrowserRouter>
-      <WalletProviders>
-        <ConfigProvider>
-          <AuthProvider>
+      <ConfigProvider>
+        <AuthProvider>
+          <WalletProviders>
             {children}
             <ToastContainer
               position="bottom-left"
@@ -31,9 +31,9 @@ export default function Providers({ children }: Props) {
                 opacity: 0.8,
               }}
             />
-          </AuthProvider>
-        </ConfigProvider>
-      </WalletProviders>
+          </WalletProviders>
+        </AuthProvider>
+      </ConfigProvider>
     </BrowserRouter>
   );
 }

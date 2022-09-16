@@ -3,7 +3,7 @@
     "scripts": {
       "postinstall": "node ./scripts/index.js",
       "start": "react-scripts start",
-      "build": "GENERATE_SOURCEMAP=false && react-scripts build",
+      "build": "GENERATE_SOURCEMAP=false react-scripts build",
       "deploy": "yarn build && vercel",
       "deploy:prod": "yarn build && vercel --prod"
     },

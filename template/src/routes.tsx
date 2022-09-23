@@ -2,6 +2,6 @@
 import { Home } from "pages";
 
 /// DEFINING ROUTES
-const ROUTES = [{ route: "/", element: <Home /> }];
+const ROUTES = [{ path: "/", element: <Home /> }];
 
 export default ROUTES;

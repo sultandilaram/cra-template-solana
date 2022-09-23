@@ -1,11 +1,12 @@
-// Packages
-import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
+import { useProvider } from "react-solana"
 
 export default function Home() {
+
+  const { wallet } = useProvider();
+
   return (
-    <section className="h100 w100 children-center flex-col" >
-      <h1 style={{ width: 'auto' }} >React - Solana Template</h1>
-      <WalletMultiButton />
+    <section className="w100 children-center flex-col" style={{ height: "calc(100% - var(--header-height))" }} >
+      <h1 style={{ width: 'auto' }} >{wallet.publicKey ? wallet.publicKey.toString() : "Please connect your wallet"}</h1>
     </section>
   )
 }

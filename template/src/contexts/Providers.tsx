@@ -1,7 +1,7 @@
 import { BrowserRouter } from 'react-router-dom';
 import { ToastContainer } from "react-toastify";
 import ConfigProvider from './ConfigProvider';
-import AuthProvider from './AuthProvider';
+import BaseProvider from './BaseProvider';
 import WalletProviders from "./WalletProviders";
 
 
@@ -13,7 +13,7 @@ export default function Providers({ children }: Props) {
   return (
     <BrowserRouter>
       <ConfigProvider>
-        <AuthProvider>
+        <BaseProvider>
           <WalletProviders>
             {children}
             <ToastContainer
@@ -32,7 +32,7 @@ export default function Providers({ children }: Props) {
               }}
             />
           </WalletProviders>
-        </AuthProvider>
+        </BaseProvider>
       </ConfigProvider>
     </BrowserRouter>
   );

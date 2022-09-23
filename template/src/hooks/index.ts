@@ -1,8 +1,3 @@
-export {
-  useLocalStorage,
-  useApi,
-  useAuth,
-  useConfig,
-  useProvider,
-  useAnchorPagination
-} from "react-solana";
+export { useLocalStorage, useApi, useAuth } from "react-base-kit";
+
+export { useConfig, useProvider, useAnchorPagination } from "react-solana";

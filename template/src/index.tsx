@@ -4,12 +4,13 @@ import { Buffer } from "buffer";
 
 /// Components
 import Providers from "./contexts/Providers";
-import { PanelWrapper } from "./wrappers";
+import { Header, NavItem, Wrapper } from "react-base-kit";
+import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 
 /// Styles
 import "@solana/wallet-adapter-react-ui/styles.css";
 import "react-toastify/dist/ReactToastify.css";
-import "react-solana/dist/styles/index.scss"
+import "react-base-kit/dist/styles/index.scss"
 
 /// ROUTER
 import ROUTES from "./routes";
@@ -21,14 +22,18 @@ function App() {
   return (
     <div className="App">
       <Providers>
-        <PanelWrapper
+        <Wrapper
+          routes={ROUTES}
           title="React - Solana"
+          header={(
+            <Header title="React - Solana" >
+              <NavItem path="/" label="Home" />
+              <WalletMultiButton />
+            </Header>
+          )}
         // sidebar={<Sidebar />}
-        // header={<Header />}
         // footer={<Footer />}
-        >
-          {ROUTES}
-        </PanelWrapper>
+        />
       </Providers>
     </div>
   );

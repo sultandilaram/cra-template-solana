@@ -1,9 +1,9 @@
 import { SolanaNetwork } from "react-solana";
 
-export const network = SolanaNetwork.Devnet;
-export const production = false;
+export const environment = "local"; // "local" | "dev" | "main"
 export const localUrl: string = "http://localhost:4000";
 export const prodUrl: string = "https://example.com";
+export const network = SolanaNetwork.Devnet;
 export const RPC_List = [
   {
     name: "Solana",

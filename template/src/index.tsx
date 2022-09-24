@@ -10,7 +10,7 @@ import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 /// Styles
 import "@solana/wallet-adapter-react-ui/styles.css";
 import "react-toastify/dist/ReactToastify.css";
-import "react-base-kit/dist/styles/index.scss"
+import "react-base-kit/dist/styles/index.css"
 
 /// ROUTER
 import ROUTES from "./routes";

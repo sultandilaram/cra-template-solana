@@ -3,30 +3,6 @@
 
 <strong>Note: We are currently testing this template, you might encounter some bugs. Please open an issue if you do so, We will get to you ASAP.</strong>
 
-<h2>Dependencies / Included node packages (Other than included in CRA) </h2>
-<table>
-  <tr>
-    <th>@project-serum/anchor</th>
-    <td>^0.25.0</td>
-  </tr>
-  <tr>
-    <th>@solana/web3.js</th>
-    <td>^1.60.0</td>
-  </tr>
-  <tr>
-    <th>@solana/spl-token</th>
-    <td>^0.3.4</td>
-  </tr>
-  <tr>
-    <th>@solana/wallet-adapter-base</th>
-    <td>^0.9.16</td>
-  </tr>
-  <tr>
-    <th>react-solana</th>
-    <td>^0.7.0</td>
-  </tr>
-</table>
-
 <h2>Built-In Hooks</h2>
 
 <h3>Basic Hooks</h3>
@@ -75,9 +51,6 @@
 
 <h2>Error Avoidance</h2>
 <p>While developing a web3 app, there are a lot of errors that can be avoided by using the right tools. This template has built in tools to avoid some of the common errors.</p>
-
-<h2>Built-In UI Kit</h2>
-<p>This template contains a built-in UI Kit built on SCSS which makes you not want to write custom CSS at all, The documentation for the UI Kit is yet to be published.</p>
 
 <h2>Usage</h2>
 <p>Create your app with create-react-app command</p>
